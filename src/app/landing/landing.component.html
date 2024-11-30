@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center align-items-center " style="height: 90vh;">
+    <div class="w-75  shadow p-3 row  ">
+        <div class="col">
+            <img class="img-fluid" src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg" alt="">
+        </div>
+        <div class="col d-flex flex-column justify-content-center">
+            <h2>Users SignIn</h2>
+            <form action="" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <div class="form-floating mb-3">
+                    <input name="emailid" ngModel #email="ngModel" [(ngModel)]="formData.email" required email type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                   <div *ngIf="email.invalid && email.touched" class="text-danger">
+                    *invalid Email
+
+                   </div>
+                  </div>
+                  <div class="form-floating">
+                    <input name="pswd" #pswd="ngModel" [(ngModel)]="formData.password" ngModel required type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <div *ngIf="pswd.invalid && pswd.touched" class="text-danger">
+*invalid Password
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn btn-success" [disabled]="loginForm.invalid" type="submit">SignIn</button>
+                  </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>

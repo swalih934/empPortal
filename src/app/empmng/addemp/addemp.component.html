@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 90vh;">
+<div class="w-75 p-2 border shadow">
+    <h2 class="text-center">Add Employee Details</h2>
+    <form #empForm="ngForm" action="" (ngSubmit)="onSubmit()">
+        <input type="text" #empid="ngModel" placeholder="ID" [(ngModel)]="formData.id" pattern="[0-9]+" required name="eid" class="form-control mb-3">
+        <p *ngIf="empid.invalid && empid.touched" class='text-danger'>
+            *invlid ID
+
+        </p>
+        <input type="text" #empname="ngModel" required pattern="[a-zA-z. ]+" placeholder="Employee name" [(ngModel)]="formData.name"  name="Employee number" class="form-control mb-3">
+        <p *ngIf="empname.invalid && empname.touched" class='text-danger'>
+            invalid Name
+        </p>
+        <input type="text" #empPhone="ngModel"  required pattern="^[9876][0-9]{9}" placeholder="Phone number" [(ngModel)]="formData.phone"  name="ph" class="form-control mb-3">
+        <p *ngIf="empPhone.invalid && empPhone.touched" class='text-danger'>
+            *invalid Phone number
+        </p>
+<select name="dept" #empdept="ngModel"required="" [(ngModel)]="formData.department"  class="form-control mb-3" id="">
+    <option value="" selected disabled> Select Department</option>
+    <option value="IT">IT</option>
+    <option value="Account">Account</option>
+    <option value="HR">HR</option>
+    <option value="Sales">Select</option>
+</select>
+<p *ngIf="empdept.invalid && empdept.touched" class='text-danger'>
+    *invalid Department
+</p>
+<div class="d-flex justify-content-between">
+    <button class="btn btn-success" [disabled]="empForm.invalid" >submit</button>
+    <a routerLink="/empmng" class="btn btn-danger">cancel</a>
+
+</div>
+    </form>
+
+</div>
+</div>
